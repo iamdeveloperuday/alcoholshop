@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -9,17 +13,19 @@
 /**nav bar styling start*/
 
 .nav {
-  height: 60px;
+  height: 70px;
   width: 100%;
-  /*background-color: #ffffff;**/
-  color: #333333;
-  background: linear-gradient(55deg, #e7e1e1, #dadaed, #fedacd);
+  color: #ffffff;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(44, 62, 80, 0.95));
+  backdrop-filter: blur(10px);
   margin: 0 auto;
   border-radius: 0px;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar {
@@ -27,6 +33,7 @@
   align-items: center;
   justify-content: space-between;
   margin: 0 50px;
+  height: 100%;
 }
 
 .logo img {
@@ -50,11 +57,18 @@
 
 .nav-option ul li a {
   text-decoration: none;
-  color: #333333;
-  font-size: 18px;
+  color: #ffffff;
+  font-size: 16px;
   font-weight: 500;
   position: relative;
   transition: all 0.3s ease;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+
+.nav-option ul li a:hover {
+  color: #ff4d4d;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .nav-option ul li a::after {
@@ -62,18 +76,15 @@
   position: absolute;
   width: 0;
   height: 2px;
-  background: rgb(26, 26, 167);
-  left: 0;
-  bottom: -5px;
+  background: #ff4d4d;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
   transition: width 0.3s ease;
 }
 
-.nav-option ul li a:hover {
-  color: rgb(26, 26, 167);
-}
-
 .nav-option ul li a:hover::after {
-  width: 100%;
+  width: 80%;
 }
 
 .loginbtn {
@@ -92,47 +103,84 @@ button {
 }
 
 .login {
-  background-color: #ff4d4d;
+  background: linear-gradient(45deg, #ff4d4d, #ff6b6b);
   font-size: 15px;
-  border-radius: 5px;
+  border-radius: 25px;
   transition: all 0.3s ease;
+  padding: 8px 20px;
+  height: 35px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .login a {
   color: white;
+  text-align: center;
+  width: 100%;
 }
 
 .login:hover {
-  background-color: transparent;
+  background: transparent;
   border: 2px solid #ff4d4d;
+  transform: translateY(-2px);
 }
 
 .login:hover a {
-  color: black;
+  color: white;
 }
 
 .singup {
   border: 2px solid #ff4d4d;
-  border-radius: 5px;
+  border-radius: 25px;
   background: transparent;
   font-size: 15px;
   transition: all 0.3s ease;
+  padding: 8px 20px;
+  height: 35px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .singup a {
-  color: #333333;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.singup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff4d4d, #ff6b6b);
+  transition: all 0.4s ease;
+}
+
+.singup:hover::before {
+  left: 0;
 }
 
 .singup:hover {
-  background-color: rgb(26, 26, 167);
-  border: 2px solid transparent;
-}
-
-.singup:hover a {
-  color: white;
+  border: none;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 77, 77, 0.3);
 }
 
 /***home section***/
+
+#home {
+  scroll-margin-top: 70px;
+}
 
 .h-header {
   background-image: url(img/home-section.jpg);
@@ -237,18 +285,21 @@ body {
 
 .alcohol-img {
     display: none;
+   
 }
 
 .alcohol-img img {
     width: 100%;
     height: auto;
     object-fit: contain;
+   
 }
 
 /* Product Section Styles */
 #product {
-  padding: 2rem 0;
-  background-color: #f8f9fa;
+  background-color: #f8f4f0;
+  padding: 80px 0 40px 0;
+  scroll-margin-top: 70px;
 }
 
 .p-header {
@@ -259,9 +310,27 @@ body {
 
 .p-header h2 {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #333;
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.p-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff4d4d, #2c3e50);
+  border-radius: 2px;
 }
 
 .product-grid {
@@ -297,6 +366,23 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #f8f9fa;
+  position: relative;
+}
+
+.product-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 77, 77, 0.1), rgba(44, 62, 80, 0.1));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-image::before {
+  opacity: 1;
 }
 
 .product-image img {
@@ -371,6 +457,60 @@ body {
   .p-header h2 {
     font-size: 2rem;
   }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-option {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(44, 62, 80, 0.95));
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+  }
+
+  .nav-option.active {
+    left: 0;
+  }
+
+  .nav-option ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+  }
+
+  .nav-option ul li a {
+    font-size: 18px;
+  }
+
+  .loginbtn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    padding: 0 20px;
+    position: fixed;
+    top: 400px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .login, .singup {
+    width: 100%;
+    max-width: 200px;
+    height: 45px;
+    font-size: 16px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 480px) {
@@ -383,6 +523,7 @@ body {
 #more-products {
   padding: 2rem 0;
   background-color: #f8f9fa;
+  scroll-margin-top: 70px;
 }
 
 .product-grid-two {
@@ -461,7 +602,8 @@ body {
 /* Offered Products Section */
 #offered-products {
   padding: 2rem 0;
-  background-color: #f8f9fa;
+  background-color: #f8f4f0;
+  scroll-margin-top: 70px;
 }
 
 .slider-container {
