@@ -80,3 +80,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+// Go to Top Button Functionality
+const goToTopButton = document.getElementById('goToTop');
+
+// Show button when user scrolls down 300px
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        goToTopButton.classList.add('show');
+    } else {
+        goToTopButton.classList.remove('show');
+    }
+});
+
+// Scroll to top when button is clicked
+goToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
